@@ -6,7 +6,7 @@ module load esmf
 module use /g/data3/hh5/public/modules
 module load conda/analysis3
 
-PATH=${PATH}:../../..
+PATH=${PATH}:../../pyregrid
 
 ln -s /g/data1/v45/aph502/jra55/sss/mean_salinity_of_0_and_10m.nc grid_in.nc
 ln -s /short/v45/aph502/mom/input/mom10/mosaic/ocean_hgrid.nc grid_out.nc

@@ -1,0 +1,3 @@
+[submodule "pyregrid"]
+	path = pyregrid
+	url = git@github.com:aidanheerdegen/pyregrid.git
