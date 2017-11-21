@@ -19,7 +19,7 @@ To create a set of regridding weights for one of the grids, say 10 (1 deg MOM5 o
 model grid):
 
 ```bash
-cd esmf_files/10
+cd WOA/esmf_files/10
 bash README
 ```
 
@@ -27,6 +27,6 @@ To then use these regridding weights to regrid sea surface salinity data to the
 MOM model grid:
 
 ```bash
-cd sss/10
+cd WOA/sss/10
 bash README
 ```
