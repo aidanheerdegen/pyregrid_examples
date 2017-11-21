@@ -1,0 +1,11 @@
+module purge
+module use /g/data3/hh5/public/modules
+module load conda/analysis3
+
+GRIDDIR=../../esmf_files/$(basename $PWD)
+
+PATH=${PATH}:../..//pyregrid
+
+applyweights.py -v --va so -w ${GRIDDIR}/weights.nc /g/data1/v45/aph502/jra55/sss/mean_salinity_of_0_and_10m.nc
+
+applyweights.py -v --va so -o rev -w ${GRIDDIR}/weights_reverse.nc mean_salinity_of_0_and_10m.nc
