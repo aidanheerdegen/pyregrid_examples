@@ -6,14 +6,17 @@ module load esmf
 module use /g/data3/hh5/public/modules
 module load conda/analysis3
 
-PATH=${PATH}:../../pyregrid
+PATH=${PATH}:../../../pyregrid
 
 ln -s /g/data1/v45/aph502/jra55/sss/mean_salinity_of_0_and_10m.nc grid_in.nc
-ln -s /short/v45/aph502/mom/input/mom025/mosaic/ocean_hgrid.nc grid_out.nc
+ln -s /short/v45/aph502/mom/input/mom10/mosaic/ocean_hgrid.nc grid_out.nc
+ln -s /home/502/aph502/payu/mom/one/mom-sis-01/archive/output000/ocean_grid.nc .
 
-grd2scrip.py -v grid_in.nc
-grd2scrip.py -v grid_out.nc 
+# grd2scrip.py -v grid_in.nc
+# grd2scrip.py -v grid_out.nc 
+grd2spec.py -v grid_in.nc
+grd2spec.py -v grid_out.nc 
 
 # mpirun -np 4 ESMF_RegridWeightGen -m conserve -v -s grid_in_scrip.nc -d grid_out_scrip.nc -w weights_cons.nc 
 
-PBS_NCPUS=8 ./regrid.pbs
+PBS_NCPUS=4 ./regrid.pbs
